@@ -1,0 +1,142 @@
+.contact-section{
+
+  padding:70px 20px;
+  background:#fff7ed;
+  text-align:center;
+  
+  }
+  
+  
+  .contact-container h1{
+  
+  font-size:40px;
+  color:#ff5200;
+  font-weight:800;
+  
+  }
+  
+  
+  
+  .contact-tagline{
+  
+  font-size:18px;
+  color:#666;
+  margin-bottom:35px;
+  
+  }
+  
+  
+  
+  .contact-card{
+  
+  max-width:450px;
+  margin:auto;
+  
+  background:white;
+  
+  padding:40px;
+  
+  border-radius:30px;
+  
+  box-shadow:0 12px 35px rgba(0,0,0,.15);
+  
+  }
+  
+  
+  
+  .contact-logo{
+  
+  width:80px;
+  height:80px;
+  
+  margin:auto;
+  
+  background:#ff5200;
+  
+  border-radius:50%;
+  
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  
+  font-size:40px;
+  
+  }
+  
+  
+  
+  .contact-card h2{
+  
+  font-size:30px;
+  color:#333;
+  
+  }
+  
+  
+  
+  .contact-card h3{
+  
+  color:#ff5200;
+  
+  }
+  
+  
+  
+  .contact-info p{
+  
+  font-size:18px;
+  color:#555;
+  line-height:1.6;
+  
+  }
+  
+  
+  
+  .contact-buttons{
+  
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  margin-top:25px;
+  
+  }
+  
+  
+  
+  .call-button,
+  .whatsapp-button{
+  
+  padding:15px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  
+  }
+  
+  
+  
+  .call-button{
+  
+  background:#ff5200;
+  
+  }
+  
+  
+  
+  .whatsapp-button{
+  
+  background:#25D366;
+  
+  }
+  
+  
+  @media(max-width:600px){
+  
+  .contact-buttons{
+  
+  flex-direction:column;
+  
+  }
+  
+  }
