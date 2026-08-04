@@ -4,23 +4,23 @@ const enquirySchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Full Name is required"],
+      required: true,
       trim: true,
     },
 
     phone: {
       type: String,
-      required: [true, "Mobile Number is required"],
+      required: true,
       trim: true,
       match: [
         /^[0-9]{10}$/,
-        "Mobile Number must be exactly 10 digits",
+        "Mobile number must be exactly 10 digits",
       ],
     },
 
     email: {
       type: String,
-      required: [true, "Email Address is required"],
+      required: true,
       trim: true,
       lowercase: true,
       match: [
@@ -31,19 +31,19 @@ const enquirySchema = new mongoose.Schema(
 
     product: {
       type: String,
-      required: [true, "Please select a product"],
+      required: true,
       trim: true,
     },
 
     place: {
       type: String,
-      required: [true, "Franchise Interested Place is required"],
+      required: true,
       trim: true,
     },
 
     quantity: {
       type: String,
-      required: [true, "Required Materials field is required"],
+      required: true,
       trim: true,
     },
 
