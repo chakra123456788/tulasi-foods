@@ -11,16 +11,20 @@ const enquirySchema = new mongoose.Schema(
     phone: {
       type: String,
       required: [true, "Mobile Number is required"],
-      match: [/^[0-9]{10}$/, "Mobile Number must be exactly 10 digits"],
+      trim: true,
+      match: [
+        /^[0-9]{10}$/,
+        "Mobile Number must be exactly 10 digits",
+      ],
     },
 
     email: {
       type: String,
       required: [true, "Email Address is required"],
-      lowercase: true,
       trim: true,
+      lowercase: true,
       match: [
-        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
         "Please enter a valid email address",
       ],
     },
@@ -35,7 +39,6 @@ const enquirySchema = new mongoose.Schema(
       type: String,
       required: [true, "Franchise Interested Place is required"],
       trim: true,
-      default: "Bengaluru",
     },
 
     quantity: {
@@ -47,7 +50,7 @@ const enquirySchema = new mongoose.Schema(
     message: {
       type: String,
       trim: true,
-      default: "",
+      default: "No message",
     },
   },
   {
@@ -55,4 +58,8 @@ const enquirySchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Enquiry", enquirySchema);
+
+module.exports = mongoose.model(
+  "Enquiry",
+  enquirySchema
+);
