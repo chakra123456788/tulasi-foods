@@ -1,88 +1,78 @@
 import "./Franchise.css";
 
-function Franchise(){
+function Franchise() {
+  return (
+    <section id="enquiry" className="franchise">
+      <h1>🥘 Tulasi Foods Franchise</h1>
 
-return(
+      <p className="franchise-subtitle">
+        Bringing Authentic Bangarpet Pani Puri Taste Across Locations
+      </p>
 
-<section className="franchise-section">
+      <div className="franchise-container">
+        <div className="franchise-card">
+          <div className="franchise-shop">🏪</div>
 
+          <h2>KR Puram</h2>
 
-<h1>
-🥘 Tulasi Foods Franchise
-</h1>
+          <p>Bengaluru, Karnataka</p>
 
-<p className="franchise-subtitle">
-Bringing Authentic Bangarpet Pani Puri Taste Across Locations
-</p>
+          <span>Official Franchise Outlet</span>
+        </div>
 
+        <div className="franchise-card">
+          <div className="franchise-shop">🏪</div>
 
+          <h2>Kotha Peta</h2>
 
-<div className="franchise-container">
+          <p>Rayachoty, Andhra Pradesh</p>
 
+          <span>Official Franchise Outlet</span>
+        </div>
+      </div>
 
-<div className="franchise-card">
+      {/* Enquiry Form */}
 
+      <div className="enquiry-form">
+        <h2>Franchise Enquiry Form</h2>
 
-<div className="franchise-shop">
-🏪
-</div>
+        <form>
+          <input
+            type="text"
+            placeholder="Full Name"
+            required
+          />
 
+          <input
+            type="tel"
+            placeholder="Mobile Number"
+            required
+          />
 
-<h2>
-KR Puram
-</h2>
+          <input
+            type="email"
+            placeholder="Email Address"
+            required
+          />
 
+          <input
+            type="text"
+            placeholder="City"
+            required
+          />
 
-<p>
-Bengaluru, Karnataka
-</p>
+          <textarea
+            rows="5"
+            placeholder="Tell us why you want a Tulasi Foods Franchise"
+          ></textarea>
 
-
-<span>
-Official Franchise Outlet
-</span>
-
-
-</div>
-
-
-
-
-
-<div className="franchise-card">
-
-
-<div className="franchise-shop">
-🏪
-</div>
-
-
-<h2>
-Kotha Peta
-</h2>
-
-
-<p>
-Rayachoty, Andhra Pradesh
-</p>
-
-
-<span>
-Official Franchise Outlet
-</span>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-)
-
+          <button type="submit">
+            Submit Enquiry
+          </button>
+        </form>
+      </div>
+    </section>
+  );
 }
-
 
 export default Franchise;

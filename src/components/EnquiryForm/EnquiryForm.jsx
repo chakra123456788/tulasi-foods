@@ -17,13 +17,14 @@ message:""
 });
 
 
-const handleChange=(e)=>{
+
+const handleChange = (e)=>{
 
 setForm({
 
 ...form,
 
-[e.target.name]:e.target.value
+[e.target.name]: e.target.value
 
 });
 
@@ -31,27 +32,73 @@ setForm({
 
 
 
-const submitForm=(e)=>{
+
+
+const submitForm = async (e)=>{
 
 e.preventDefault();
 
 
-let oldData =
-JSON.parse(localStorage.getItem("orders")) || [];
+try{
 
 
-oldData.push(form);
+const response = await fetch(
+"http://localhost:5000/api/enquiry",
+{
 
+method:"POST",
 
-localStorage.setItem(
-"orders",
-JSON.stringify(oldData)
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify(form)
+
+}
+
 );
+
+
+
+const data = await response.json();
+
+
+console.log(data);
 
 
 alert("Enquiry Submitted Successfully!");
 
+
+
+setForm({
+
+name:"",
+phone:"",
+email:"",
+product:"",
+place:"",
+quantity:"",
+message:""
+
+});
+
+
+}
+
+catch(error){
+
+console.log(error);
+
+alert("Something went wrong");
+
+}
+
+
 };
+
+
 
 
 
@@ -84,6 +131,8 @@ Fill your details and our team will contact you
 
 name="name"
 
+value={form.name}
+
 placeholder="Full Name (Example: Ramu Kumar)"
 
 onChange={handleChange}
@@ -96,6 +145,8 @@ onChange={handleChange}
 
 name="phone"
 
+value={form.phone}
+
 placeholder="Mobile Number (Example: +91 9897989778)"
 
 onChange={handleChange}
@@ -107,12 +158,15 @@ onChange={handleChange}
 
 
 
+
 <div className="row">
 
 
 <input
 
 name="email"
+
+value={form.email}
 
 placeholder="Email Address (Example: ramu@gmail.com)"
 
@@ -126,6 +180,8 @@ onChange={handleChange}
 
 name="place"
 
+value={form.place}
+
 placeholder="Franchise Place (Example: Bengaluru)"
 
 onChange={handleChange}
@@ -138,33 +194,42 @@ onChange={handleChange}
 
 
 
+
 <select
 
 name="product"
+
+value={form.product}
 
 onChange={handleChange}
 
 >
 
-<option>
+
+<option value="">
 Select Product
 </option>
+
 
 <option>
 All Products
 </option>
 
+
 <option>
 Pani Puri
 </option>
+
 
 <option>
 Masala Puri
 </option>
 
+
 <option>
 Nippat Masala
 </option>
+
 
 <option>
 Franchise
@@ -181,6 +246,8 @@ Franchise
 
 name="quantity"
 
+value={form.quantity}
+
 placeholder="Quantity Required (Example: 10 Boxes)"
 
 onChange={handleChange}
@@ -195,6 +262,8 @@ onChange={handleChange}
 
 name="message"
 
+value={form.message}
+
 placeholder="Write your requirements"
 
 onChange={handleChange}
@@ -205,7 +274,7 @@ onChange={handleChange}
 
 
 
-<button>
+<button type="submit">
 
 Submit Enquiry
 

@@ -1,124 +1,151 @@
-.franchise-section{
-
-    padding:60px 40px;
-    
-    background:#fff7ed;
-    
-    text-align:center;
-    
+.franchise {
+    padding: 70px 40px;
+    background: #fff7ed;
+    text-align: center;
+  }
+  
+  .franchise h1 {
+    font-size: 42px;
+    color: #ff5200;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+  
+  .franchise-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 50px;
+  }
+  
+  .franchise-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+  
+  .franchise-card {
+    background: white;
+    width: 320px;
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transition: 0.3s;
+  }
+  
+  .franchise-card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .franchise-shop {
+    width: 70px;
+    height: 70px;
+    background: #ff5200;
+    border-radius: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+  }
+  
+  .franchise-card h2 {
+    font-size: 28px;
+    margin: 20px 0 10px;
+  }
+  
+  .franchise-card p {
+    color: #666;
+    font-size: 17px;
+  }
+  
+  .franchise-card span {
+    display: inline-block;
+    background: #fff0e6;
+    color: #ff5200;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  /* ===========================
+     Enquiry Form
+  =========================== */
+  
+  .enquiry-form {
+    max-width: 700px;
+    margin: auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .enquiry-form h2 {
+    color: #ff5200;
+    margin-bottom: 30px;
+    font-size: 32px;
+  }
+  
+  .enquiry-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .enquiry-form input,
+  .enquiry-form textarea {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+  }
+  
+  .enquiry-form input:focus,
+  .enquiry-form textarea:focus {
+    border-color: #ff5200;
+  }
+  
+  .enquiry-form textarea {
+    resize: vertical;
+  }
+  
+  .enquiry-form button {
+    background: #ff5200;
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .enquiry-form button:hover {
+    background: #e64a00;
+  }
+  
+  @media (max-width: 768px) {
+    .franchise {
+      padding: 50px 20px;
     }
-    
-    
-    .franchise-section h1{
-    
-    font-size:40px;
-    
-    color:#ff5200;
-    
-    font-weight:900;
-    
+  
+    .franchise h1 {
+      font-size: 32px;
     }
-    
-    
-    
-    .franchise-subtitle{
-    
-    font-size:18px;
-    
-    color:#666;
-    
-    margin-bottom:40px;
-    
+  
+    .franchise-card {
+      width: 100%;
     }
-    
-    
-    
-    .franchise-container{
-    
-    display:flex;
-    
-    justify-content:center;
-    
-    gap:30px;
-    
-    flex-wrap:wrap;
-    
+  
+    .enquiry-form {
+      padding: 25px;
     }
-    
-    
-    
-    .franchise-card{
-    
-    background:white;
-    
-    width:320px;
-    
-    padding:35px;
-    
-    border-radius:25px;
-    
-    box-shadow:0 10px 30px rgba(0,0,0,.12);
-    
-    }
-    
-    
-    
-    .franchise-shop{
-    
-    width:70px;
-    
-    height:70px;
-    
-    background:#ff5200;
-    
-    border-radius:50%;
-    
-    margin:auto;
-    
-    display:flex;
-    
-    align-items:center;
-    
-    justify-content:center;
-    
-    font-size:35px;
-    
-    }
-    
-    
-    
-    .franchise-card h2{
-    
-    font-size:28px;
-    
-    margin:20px 0 10px;
-    
-    }
-    
-    
-    
-    .franchise-card p{
-    
-    color:#666;
-    
-    font-size:17px;
-    
-    }
-    
-    
-    
-    .franchise-card span{
-    
-    display:inline-block;
-    
-    background:#fff0e6;
-    
-    color:#ff5200;
-    
-    padding:8px 15px;
-    
-    border-radius:20px;
-    
-    font-weight:bold;
-    
-    }
+  }

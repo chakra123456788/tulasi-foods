@@ -1,40 +1,27 @@
-import Hero from "./components/Hero/Hero";
-import Franchise from "./components/Franchise/Franchise";
-import Products from "./components/Products/Products";
-import EnquiryForm from "./components/EnquiryForm/EnquiryForm";
-import Contact from "./components/Contact/Contact";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Admin from "./pages/Admin";
 
 
-function App() {
+function App(){
 
-  return (
+return(
 
-    <>
+<BrowserRouter>
 
-      {/* Company Header */}
-      <Hero />
+<Routes>
 
+<Route path="/" element={<Home />} />
 
-      {/* Franchise Locations */}
-      <Franchise />
+<Route path="/admin" element={<Admin />} />
 
+</Routes>
 
-      {/* Products Section */}
-      <Products />
+</BrowserRouter>
 
-
-      {/* Customer Enquiry */}
-      <EnquiryForm />
-
-
-      {/* Contact Section */}
-      <Contact />
-
-    </>
-
-  );
+)
 
 }
-
 
 export default App;
