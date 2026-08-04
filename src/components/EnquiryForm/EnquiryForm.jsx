@@ -2,21 +2,31 @@ import { useState } from "react";
 import "./EnquiryForm.css";
 
 function EnquiryForm() {
+
+  const [loading, setLoading] = useState(false);
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
     email: "",
     product: "",
-    place: "Bengaluru",
+    place: "",
     quantity: "",
     message: "",
   });
 
+
   const handleChange = (e) => {
+
     const { name, value } = e.target;
 
+
     if (name === "phone") {
-      const phone = value.replace(/\D/g, "").slice(0, 10);
+
+      const phone = value
+        .replace(/\D/g, "")
+        .slice(0, 10);
+
 
       setForm({
         ...form,
@@ -26,61 +36,129 @@ function EnquiryForm() {
       return;
     }
 
+
     setForm({
       ...form,
       [name]: value,
     });
+
   };
 
+
+
   const submitForm = async (e) => {
+
     e.preventDefault();
 
+
+    if (loading) return;
+
+
+    setLoading(true);
+
+
     try {
+
+
       const response = await fetch(
         "https://tulasi-foods-backend.onrender.com/api/enquiry",
         {
           method: "POST",
+
           headers: {
             "Content-Type": "application/json",
           },
+
           body: JSON.stringify(form),
         }
       );
 
+
+
       const data = await response.json();
 
+
+
       if (response.ok) {
+
+
         alert(
           "✅ Thank you!\n\nYour enquiry has been received successfully.\n\nOur Tulasi Foods team will contact you within 24 hours."
         );
 
+
+
         setForm({
+
           name: "",
           phone: "",
           email: "",
           product: "",
-          place: "Bengaluru",
+          place: "",
           quantity: "",
           message: "",
+
         });
+
+
       } else {
-        alert(data.message || "Failed to submit enquiry.");
+
+
+        alert(
+          data.message || "Failed to submit enquiry"
+        );
+
+
       }
+
+
     } catch (error) {
-      console.error(error);
-      alert("Something went wrong. Please try again.");
+
+
+      console.log(error);
+
+      alert(
+        "❌ Something went wrong. Please try again."
+      );
+
+
+    } finally {
+
+
+      setLoading(false);
+
+
     }
+
   };
 
-  return (
-    <section className="enquiry-section">
-      <div className="enquiry-card">
-        <h1>Order & Franchise Enquiry</h1>
 
-        <p>Fill your details and our team will contact you.</p>
+
+  return (
+
+    <section className="enquiry-section">
+
+
+      <div className="enquiry-card">
+
+
+        <h1>
+          Order & Franchise Enquiry
+        </h1>
+
+
+        <p>
+          Fill your details and our team will contact you.
+        </p>
+
+
 
         <form onSubmit={submitForm}>
+
+
           <div className="row">
+
+
             <input
               type="text"
               name="name"
@@ -90,28 +168,39 @@ function EnquiryForm() {
               required
             />
 
+
+
             <input
               type="tel"
               name="phone"
               value={form.phone}
-              placeholder="Mobile Number"
+              placeholder="Mobile Number (10 digits)"
               onChange={handleChange}
-              maxLength={10}
+              maxLength="10"
               pattern="[0-9]{10}"
-              title="Enter a valid 10-digit mobile number"
               required
             />
+
+
           </div>
 
+
+
+
+
           <div className="row">
+
+
             <input
               type="email"
               name="email"
               value={form.email}
-              placeholder="Email Address"
+              placeholder="Email Address (example@gmail.com)"
               onChange={handleChange}
               required
             />
+
+
 
             <input
               type="text"
@@ -121,46 +210,129 @@ function EnquiryForm() {
               onChange={handleChange}
               required
             />
+
+
           </div>
 
+
+
+
+
           <select
+
             name="product"
+
             value={form.product}
+
             onChange={handleChange}
+
             required
+
           >
-            <option value="">Select Product</option>
-            <option value="Pani Puri Box">Pani Puri Box</option>
-            <option value="Masala Puri Mix">Masala Puri Mix</option>
-            <option value="Nippat Masala">Nippat Masala</option>
-            <option value="Complete Franchise">Complete Franchise</option>
-            <option value="All Products">All Products</option>
+
+
+            <option value="">
+              Select Product
+            </option>
+
+
+            <option value="Pani Puri Box">
+              Pani Puri Box
+            </option>
+
+
+            <option value="Masala Puri Mix">
+              Masala Puri Mix
+            </option>
+
+
+            <option value="Nippat Masala">
+              Nippat Masala
+            </option>
+
+
+            <option value="Complete Franchise">
+              Complete Franchise
+            </option>
+
+
+            <option value="All Products">
+              All Products
+            </option>
+
+
           </select>
 
+
+
+
+
           <input
+
             type="text"
+
             name="quantity"
+
             value={form.quantity}
+
             placeholder="Required Materials (Example: 10 Pani Puri Boxes)"
+
             onChange={handleChange}
+
             required
+
           />
+
+
+
+
 
           <textarea
+
             name="message"
+
             rows="5"
+
             value={form.message}
+
             placeholder="Any Requirements / Queries"
+
             onChange={handleChange}
+
           />
 
+
+
+
+
           <button type="submit">
-            Submit Enquiry
+
+
+            {
+              loading
+              ?
+              "Submitting..."
+              :
+              "Submit Enquiry"
+            }
+
+
           </button>
+
+
+
         </form>
+
+
       </div>
+
+
     </section>
+
+
   );
+
 }
+
 
 export default EnquiryForm;
