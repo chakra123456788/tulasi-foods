@@ -7,15 +7,28 @@ function EnquiryForm() {
     phone: "",
     email: "",
     product: "",
-    place: "",
+    place: "Bengaluru",
     quantity: "",
     message: "",
   });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "phone") {
+      const phone = value.replace(/\D/g, "").slice(0, 10);
+
+      setForm({
+        ...form,
+        phone,
+      });
+
+      return;
+    }
+
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -37,23 +50,25 @@ function EnquiryForm() {
       const data = await response.json();
 
       if (response.ok) {
-        alert("✅ Enquiry Submitted Successfully!");
+        alert(
+          "✅ Thank you!\n\nYour enquiry has been received successfully.\n\nOur Tulasi Foods team will contact you within 24 hours."
+        );
 
         setForm({
           name: "",
           phone: "",
           email: "",
           product: "",
-          place: "",
+          place: "Bengaluru",
           quantity: "",
           message: "",
         });
       } else {
-        alert(data.message || "❌ Failed to submit enquiry.");
+        alert(data.message || "Failed to submit enquiry.");
       }
     } catch (error) {
       console.error(error);
-      alert("❌ Something went wrong. Please try again.");
+      alert("Something went wrong. Please try again.");
     }
   };
 
@@ -62,7 +77,7 @@ function EnquiryForm() {
       <div className="enquiry-card">
         <h1>Order & Franchise Enquiry</h1>
 
-        <p>Fill your details and our team will contact you</p>
+        <p>Fill your details and our team will contact you.</p>
 
         <form onSubmit={submitForm}>
           <div className="row">
@@ -70,7 +85,7 @@ function EnquiryForm() {
               type="text"
               name="name"
               value={form.name}
-              placeholder="Full Name (Example: Ramu Kumar)"
+              placeholder="Full Name"
               onChange={handleChange}
               required
             />
@@ -79,8 +94,11 @@ function EnquiryForm() {
               type="tel"
               name="phone"
               value={form.phone}
-              placeholder="Mobile Number (Example: +91 9897989778)"
+              placeholder="Mobile Number"
               onChange={handleChange}
+              maxLength={10}
+              pattern="[0-9]{10}"
+              title="Enter a valid 10-digit mobile number"
               required
             />
           </div>
@@ -90,16 +108,18 @@ function EnquiryForm() {
               type="email"
               name="email"
               value={form.email}
-              placeholder="Email Address (Example: ramu@gmail.com)"
+              placeholder="Email Address"
               onChange={handleChange}
+              required
             />
 
             <input
               type="text"
               name="place"
               value={form.place}
-              placeholder="Franchise Place (Example: Bengaluru)"
+              placeholder="Franchise Interested Place"
               onChange={handleChange}
+              required
             />
           </div>
 
@@ -107,28 +127,30 @@ function EnquiryForm() {
             name="product"
             value={form.product}
             onChange={handleChange}
+            required
           >
             <option value="">Select Product</option>
-            <option value="All Products">All Products</option>
-            <option value="Pani Puri">Pani Puri</option>
-            <option value="Masala Puri">Masala Puri</option>
+            <option value="Pani Puri Box">Pani Puri Box</option>
+            <option value="Masala Puri Mix">Masala Puri Mix</option>
             <option value="Nippat Masala">Nippat Masala</option>
-            <option value="Franchise">Franchise</option>
+            <option value="Complete Franchise">Complete Franchise</option>
+            <option value="All Products">All Products</option>
           </select>
 
           <input
             type="text"
             name="quantity"
             value={form.quantity}
-            placeholder="Quantity Required (Example: 10 Boxes)"
+            placeholder="Required Materials (Example: 10 Pani Puri Boxes)"
             onChange={handleChange}
+            required
           />
 
           <textarea
             name="message"
             rows="5"
             value={form.message}
-            placeholder="Write your requirements"
+            placeholder="Any Requirements / Queries"
             onChange={handleChange}
           />
 
