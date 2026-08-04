@@ -1,135 +1,147 @@
 import "./Products.css";
 
+function Products() {
 
-function Products(){
+  const products = [
 
-const products = [
-
-{
-name:"Pani Puri",
-image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxTRzuUX9QqEDNe9S__stCfebxdKUUIYqT9S5mvy-MNw&s=10",
-desc:"Crispy pani puri with authentic street food taste.",
-price:"₹500 / Box"
-},
-
-{
-name:"Masala Puri",
-image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo1k6GqIyfxsyr87QCV-GAZ3SLQNOD7RH203J3zF-kcw&s=10",
-desc:"Traditional South Indian masala puri with premium ingredients.",
-price:"₹500 / Box"
-},
-
-{
-name:"Nippat Masala",
-image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT01aJbUUGV2MLzTEZq0G_ZAu2nUkG1nFuDn9TnSwu79Q&s=10",
-desc:"Crunchy spicy nippat masala perfect for snacks.",
-price:"₹500 / Box"
-}
-
-];
+    {
+      name: "Pani Puri Box",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxTRzuUX9QqEDNe9S__stCfebxdKUUIYqT9S5mvy-MNw&s=10",
+      desc:
+        "Crispy pani puri with authentic Bangarpet street food taste and premium quality ingredients.",
+      price:
+        "Raw Products Material Cost : ₹500 / Box"
+    },
 
 
-return(
-
-<section className="products-section">
-
-
-{/* Franchise Offer */}
-
-<div className="franchise-price-box">
-
-
-<h2>
-🚀 Start Your Tulasi Foods Franchise
-</h2>
+    {
+      name: "Masala Puri Mix",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo1k6GqIyfxsyr87QCV-GAZ3SLQNOD7RH203J3zF-kcw&s=10",
+      desc:
+        "Traditional South Indian masala puri mix prepared with authentic flavours and quality materials.",
+      price:
+        "Raw Products Material Cost : ₹500 / Pack"
+    },
 
 
-<h1>
-₹3,00,000
-</h1>
+    {
+      name: "Nippat Masala",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT01aJbUUGV2MLzTEZq0G_ZAu2nUkG1nFuDn9TnSwu79Q&s=10",
+      desc:
+        "Crunchy and spicy nippat masala perfect for premium snack businesses.",
+      price:
+        "Raw Products Material Cost : ₹500 / Pack"
+    }
 
-
-<p>
-Complete Franchise Setup Starting From
-</p>
-
-
-<span>
-Products Supply • Training Support • Marketing Guidance
-</span>
-
-
-</div>
+  ];
 
 
 
+  return (
+
+    <section className="products-section">
 
 
-{/* Products Title */}
+      {/* Franchise Offer */}
 
-<h1>
-Our Special Products
-</h1>
+      <div className="franchise-price-box">
 
 
-
-<div className="product-row">
-
-
-{
-products.map((product,index)=>(
+        <h2>
+          🚀 Start Your Tulasi Foods Franchise
+        </h2>
 
 
-<div className="product-card" key={index}>
+        <h1>
+          ₹3,00,000
+        </h1>
 
 
-<img
-
-src={product.image}
-
-alt={product.name}
-
-className="food-image"
-
-/>
+        <p>
+          Complete Franchise Setup Starting From
+        </p>
 
 
-
-<h2>
-{product.name}
-</h2>
-
-
-<p>
-{product.desc}
-</p>
+        <span>
+          Products Supply • Training Support • Marketing Guidance
+        </span>
 
 
-<h3>
-Material Cost : {product.price}
-</h3>
+      </div>
 
 
 
-<button>
-Order Now
-</button>
+
+      {/* Products */}
+
+      <h1>
+        Our Special Products
+      </h1>
 
 
-</div>
+
+      <div className="product-row">
 
 
-))
-
-}
-
-
-</div>
+        {
+          products.map((product, index) => (
 
 
-</section>
+            <div
+              className="product-card"
+              key={index}
+            >
 
-)
+
+              <img
+                src={product.image}
+                alt={product.name}
+                className="food-image"
+              />
+
+
+
+              <h2>
+                {product.name}
+              </h2>
+
+
+
+              <p>
+                {product.desc}
+              </p>
+
+
+
+              <h3>
+                {product.price}
+              </h3>
+
+
+
+              <button>
+                Order Now
+              </button>
+
+
+
+            </div>
+
+
+          ))
+        }
+
+
+      </div>
+
+
+    </section>
+
+
+  );
 
 }
 
