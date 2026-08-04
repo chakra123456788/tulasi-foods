@@ -3,7 +3,6 @@ import "./Products.css";
 function Products() {
 
   const products = [
-
     {
       name: "Pani Puri Box",
       image:
@@ -11,9 +10,8 @@ function Products() {
       desc:
         "Crispy pani puri with authentic Bangarpet street food taste and premium quality ingredients.",
       price:
-        "Raw Products Material Cost : ₹500 / Box"
+        "Raw Products Material Cost : ₹500 / Box",
     },
-
 
     {
       name: "Masala Puri Mix",
@@ -22,9 +20,8 @@ function Products() {
       desc:
         "Traditional South Indian masala puri mix prepared with authentic flavours and quality materials.",
       price:
-        "Raw Products Material Cost : ₹500 / Pack"
+        "Raw Products Material Cost : ₹500 / Pack",
     },
-
 
     {
       name: "Nippat Masala",
@@ -33,11 +30,9 @@ function Products() {
       desc:
         "Crunchy and spicy nippat masala perfect for premium snack businesses.",
       price:
-        "Raw Products Material Cost : ₹500 / Pack"
-    }
-
+        "Raw Products Material Cost : ₹500 / Pack",
+    },
   ];
-
 
 
   return (
@@ -45,37 +40,27 @@ function Products() {
     <section className="products-section">
 
 
-      {/* Franchise Offer */}
-
       <div className="franchise-price-box">
-
 
         <h2>
           🚀 Start Your Tulasi Foods Franchise
         </h2>
 
-
         <h1>
           ₹3,00,000
         </h1>
-
 
         <p>
           Complete Franchise Setup Starting From
         </p>
 
-
         <span>
           Products Supply • Training Support • Marketing Guidance
         </span>
 
-
       </div>
 
 
-
-
-      {/* Products */}
 
       <h1>
         Our Special Products
@@ -85,16 +70,13 @@ function Products() {
 
       <div className="product-row">
 
-
         {
           products.map((product, index) => (
-
 
             <div
               className="product-card"
               key={index}
             >
-
 
               <img
                 src={product.image}
@@ -103,11 +85,9 @@ function Products() {
               />
 
 
-
               <h2>
                 {product.name}
               </h2>
-
 
 
               <p>
@@ -115,11 +95,9 @@ function Products() {
               </p>
 
 
-
               <h3>
                 {product.price}
               </h3>
-
 
 
               <button>
@@ -127,22 +105,17 @@ function Products() {
               </button>
 
 
-
             </div>
-
 
           ))
         }
-
 
       </div>
 
 
     </section>
 
-
   );
-
 }
 
 
